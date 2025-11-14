@@ -135,7 +135,7 @@ input:focus-visible {
 
 /* 1-col reading layout */
 .content-layout-single {
-    max-width: 75ch; /* optimal reading width */
+    max-width: 100ch;
     margin: 0 auto;
 }
 
