@@ -40,7 +40,7 @@ html[data-theme="light"] {
 
 html {
     scroll-behavior: smooth;
-    font-size: 100%; /* 16px */
+    font-size: 100%;
 }
 
 body {
@@ -176,7 +176,7 @@ input:focus-visible {
 
 .nav-link[aria-current="page"] {
     background-color: var(--color-primary);
-    color: #112; /* dark bg */
+    color: #112;
 }
 html[data-theme="light"] .nav-link[aria-current="page"] {
     color: #fff;
@@ -306,7 +306,7 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-    font-size: clamp(2rem, 5vw, 2.75rem); /* slightly smaller */
+    font-size: clamp(2rem, 5vw, 2.75rem);
 }
 h2 {
     font-size: clamp(1.5rem, 4vw, 1.75rem);
@@ -347,7 +347,7 @@ figure {
     margin: 2rem 0;
 }
 .figure--bleed {
-    margin: 3rem -1.5rem; /* bleed out of container */
+    margin: 3rem -1.5rem;
 }
 @media (min-width: 600px) {
     .figure--bleed {
@@ -427,7 +427,6 @@ blockquote cite a {
     width: 1px;
     height: 1px;
     z-index: 1;
-    /* faint synapse network bg */
     background-image:
         radial-gradient(var(--color-border) 1px, transparent 1px),
         radial-gradient(var(--color-border) 1px, transparent 1px);
@@ -448,7 +447,7 @@ blockquote cite a {
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 .content-section:first-of-type {
-    margin-top: 1rem; /* less margin for first */
+    margin-top: 1rem;
 }
 .content-section.is-visible {
     opacity: 1;
