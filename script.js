@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (navToggle && navContainer) {
         navToggle.addEventListener('click', handleNavToggle);
         
-        // close nav if link clicked
         navContainer.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 if (body.classList.contains('nav-open')) {
@@ -115,29 +114,37 @@ document.addEventListener("DOMContentLoaded", () => {
         const sections = navLinks.map(link => {
             const id = link.getAttribute('href').substring(1);
             return document.getElementById(id);
-        }).filter(Boolean); // remove nulls
+        }).filter(Boolean);
 
         if (sections.length === 0) return;
 
-        // highlights link when section is ~center screen
-        const options = { root: null, rootMargin: '-40% 0px -60% 0px', threshold: 0 };
+        const options = { root: null, rootMargin: '-20% 0px -70% 0px', threshold: 0 };
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
+        const observer = new IntersectionObserver((entries) => {
+             entries.forEach(entry => {
+                const id = entry.target.id;
+                const navLink = pageNav.querySelector(`a[href="#${id}"]`);
+
                 if (entry.isIntersecting) {
-                    navLinks.forEach(link => {
-                        if (link.getAttribute('href') === `#${entry.target.id}`) {
-                            link.classList.add('active');
-                        } else {
-                            link.classList.remove('active');
-                        }
-                    });
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    if (navLink) {
+                        navLink.classList.add('active');
+                    }
                 }
             });
         }, options);
-
+        
         sections.forEach(section => observer.observe(section));
+        
+        // make sure "intro" is active at top
+        const introSection = document.getElementById('intro');
+        if (introSection && window.scrollY < introSection.offsetTop) {
+             navLinks.forEach(link => link.classList.remove('active'));
+             const introLink = pageNav.querySelector(`a[href="#intro"]`);
+             if(introLink) introLink.classList.add('active');
+        }
     };
+
 
     // run initializers
     setActiveNavLink();
