@@ -49,6 +49,7 @@ body {
     background-color: var(--color-bg);
     color: var(--color-text);
     transition: background-color 0.2s ease, color 0.2s ease;
+    overflow-x: hidden; /* fix horizontal scroll bug */
 }
 body.nav-open {
     overflow: hidden;
@@ -92,7 +93,7 @@ input:focus-visible {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: nowrap; /* keep toggles on same line as logo */
+    flex-wrap: nowrap;
     gap: 1rem;
 }
 
@@ -158,13 +159,12 @@ input:focus-visible {
     }
 }
 
-
 .nav-container {
     position: fixed;
     top: 0;
     right: 0;
     width: 100%;
-    height: 100vh; /* full viewport height */
+    height: 100vh;
     background-color: var(--color-bg);
     display: flex;
     flex-direction: column;
@@ -194,7 +194,7 @@ input:focus-visible {
     font-weight: 500;
     border-radius: var(--border-radius);
     transition: color 0.2s ease, background-color 0.2s ease;
-    font-size: 1.25rem; /* reduced from 1.5 */
+    font-size: 1.25rem;
     border-bottom: 1px solid var(--color-border);
 }
 .nav-link:last-child {
@@ -226,7 +226,7 @@ html[data-theme="light"] .nav-link[aria-current="page"] {
     transition: color 0.2s ease, background-color 0.2s ease;
     position: relative;
     z-index: 101;
-    flex-shrink: 0; /* prevent shrinking */
+    flex-shrink: 0;
 }
 .theme-toggle:hover {
     color: var(--color-text);
@@ -244,7 +244,7 @@ html[data-theme="light"] .nav-link[aria-current="page"] {
     padding: 0.5rem;
     cursor: pointer;
     z-index: 101; 
-    flex-shrink: 0; /* prevent shrinking */
+    flex-shrink: 0;
 }
 .hamburger {
     display: block;
@@ -267,7 +267,6 @@ html[data-theme="light"] .nav-link[aria-current="page"] {
 .hamburger::before { top: -8px; }
 .hamburger::after { top: 8px; }
 
-/* mobile nav active */
 body.nav-open .nav-container {
     opacity: 1;
     visibility: visible;
@@ -283,7 +282,6 @@ body.nav-open .hamburger::after {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-/* desktop navigation */
 @media (min-width: 900px) {
     .nav-toggle {
         display: none;
@@ -424,8 +422,6 @@ blockquote cite {
 blockquote cite a {
     font-weight: 400;
 }
-
-/* 7. page-specific sections */
 
 .hero-section {
     padding: 4rem 1.5rem 5rem 1.5rem;
@@ -596,7 +592,7 @@ html[data-theme="light"] .page-nav-link.active {
 
 
 .table-container {
-    overflow: hidden; /* enforce radius */
+    overflow: hidden;
     width: 100%;
     margin: 2rem 0;
     border: 1px solid var(--color-border);
@@ -605,7 +601,6 @@ html[data-theme="light"] .page-nav-link.active {
 table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 600px;
 }
 table caption {
     font-size: 1rem;
@@ -649,7 +644,6 @@ td strong {
     color: var(--color-text);
 }
 
-/* mobile card table */
 @media (max-width: 700px) {
     .table-container {
         border: none;
@@ -657,8 +651,7 @@ td strong {
         background: none;
     }
     table {
-        min-width: 0;
-        border-collapse: separate; /* needed for card layout */
+        border-collapse: separate;
         border-spacing: 0 1.5rem;
     }
     table caption {
@@ -668,6 +661,7 @@ td strong {
         font-size: 0.9rem;
         font-weight: 400;
         border-bottom: none;
+        text-align: center;
     }
     table, thead, tbody, tr, th, td {
         display: block;
@@ -679,7 +673,7 @@ td strong {
         border: 1px solid var(--color-border);
         border-radius: var(--border-radius);
         background: var(--color-card-bg);
-        overflow: hidden; /* new */
+        overflow: hidden;
     }
     tbody th[scope="row"] {
         padding: 1rem 1.25rem 0.5rem 1.25rem;
@@ -711,7 +705,6 @@ td strong {
     }
 }
 
-
 .bio-section {
     background-color: var(--color-card-bg);
     border-radius: var(--border-radius);
@@ -734,7 +727,7 @@ td strong {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
-    align-items: start;
+    align-items: center;
 }
 @media (min-width: 768px) {
     .bio-grid {
@@ -756,20 +749,26 @@ td strong {
     font-style: italic;
     font-size: 0.9rem;
 }
-.author-placeholder {
-    margin: 0;
+
+.author-portrait {
+    margin: 0 auto;
     max-width: 200px;
 }
-.author-placeholder img {
+.author-portrait img {
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     opacity: 0.7;
+    display: block;
+    width: 100%;
 }
-.author-placeholder figcaption {
+.author-portrait figcaption {
     background: none;
     padding: 0.5rem 0 0 0;
     text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
 }
+
 
 .citation-list {
     list-style: none;
