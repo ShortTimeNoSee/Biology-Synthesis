@@ -27,8 +27,8 @@ html[data-theme="light"] {
     --color-primary: #09b;
     --color-secondary: #66f;
     --color-border: #eee;
-    --color-card-bg: #f9f9f9;
-    --color-quote-bg: #f9f9f9;
+    --color-card-bg: #fffb;
+    --color-quote-bg: #fffb;
     --color-quote-border: var(--color-primary);
 }
 
