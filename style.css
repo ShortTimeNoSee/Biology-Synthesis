@@ -424,6 +424,7 @@ figure {
 }
 .figure--bleed {
     margin: 3rem 0;
+    max-width: 800px;
 }
 html[data-theme="dark"] .figure--bleed img {
     filter: invert(0.9);
@@ -431,14 +432,14 @@ html[data-theme="dark"] .figure--bleed img {
 
 @media (min-width: 600px) {
     .figure--bleed {
-        margin: 3rem;
+        margin: 3rem auto;
         border-radius: var(--border-radius);
         overflow: hidden;
     }
 }
 @media (min-width: 1100px) {
     .figure--bleed {
-        margin: 3rem -3rem;
+        margin: 3rem auto;
     }
 }
 
@@ -621,10 +622,9 @@ html[data-theme="light"] .page-nav-link.active {
         background-color: transparent;
         padding: 0;
         border: none;
-    }
-    .sidebar-nav nav {
         position: sticky;
         top: 100px;
+        align-self: start;
     }
     .page-nav-list {
         flex-direction: column;
@@ -710,13 +710,15 @@ td strong {
     .table-container {
         border: none;
         overflow: visible;
+        background: none;
+        margin-top: 1rem;
     }
     .table-caption {
         padding: 0 0 1rem 0;
     }
     table {
         border-collapse: separate;
-        border-spacing: 0 1.5rem;
+        border-spacing: 0;
         min-width: 0;
         border: none;
         border-radius: 0;
@@ -799,6 +801,7 @@ td strong {
     margin: 0;
     max-width: 200px;
     flex-shrink: 0;
+    width: 100%;
 }
 .author-portrait img {
     border: 1px solid var(--color-border);

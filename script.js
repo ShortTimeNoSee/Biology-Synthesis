@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (sections.length === 0) return;
 
-        const options = { root: null, rootMargin: '-20% 0px -70% 0px', threshold: 0 };
+        const options = { root: null, rootMargin: '0px 0px -80% 0px', threshold: 0 };
 
         const observer = new IntersectionObserver((entries) => {
              entries.forEach(entry => {
@@ -136,9 +136,8 @@ document.addEventListener("DOMContentLoaded", () => {
         
         sections.forEach(section => observer.observe(section));
         
-        // make sure "intro" is active at top
         const introSection = document.getElementById('intro');
-        if (introSection && window.scrollY < introSection.offsetTop) {
+        if (introSection && window.scrollY < 100) {
              navLinks.forEach(link => link.classList.remove('active'));
              const introLink = pageNav.querySelector(`a[href="#intro"]`);
              if(introLink) introLink.classList.add('active');
