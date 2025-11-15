@@ -30,6 +30,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (navToggle && navContainer) {
         navToggle.addEventListener('click', handleNavToggle);
+        
+        // close nav if link clicked
+        navContainer.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (body.classList.contains('nav-open')) {
+                    handleNavToggle();
+                }
+            });
+        });
     }
 
     // 3. theme toggler (light/dark)
@@ -110,6 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (sections.length === 0) return;
 
+        // highlights link when section is ~center screen
         const options = { root: null, rootMargin: '-40% 0px -60% 0px', threshold: 0 };
 
         const observer = new IntersectionObserver((entries, observer) => {
@@ -128,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         sections.forEach(section => observer.observe(section));
     };
-
 
     // run initializers
     setActiveNavLink();
