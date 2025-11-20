@@ -414,6 +414,18 @@ a:hover {
     border-bottom-color: var(--color-primary);
 }
 
+/* citation numbers */
+sup a {
+    font-size: 0.75rem;
+    margin-left: 0.1rem;
+    text-decoration: none;
+    border-bottom: none;
+    vertical-align: super;
+}
+sup a:hover {
+    text-decoration: underline;
+}
+
 strong {
     color: var(--color-heading);
     font-weight: 700;
@@ -876,12 +888,15 @@ td strong {
     overflow-wrap: break-word;
     word-break: break-word;
 }
+.citation-list ol {
+    list-style: decimal;
+    padding-left: 1.5rem;
+}
+.citation-list ol li {
+    padding-left: 0.5rem;
+}
 .citation-list li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--color-primary);
-    font-weight: 700;
+    content: none;
 }
 .citation-list li strong {
     color: var(--color-heading);
