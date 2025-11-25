@@ -20,14 +20,20 @@
             <div class="nav-container" id="nav-container">
                 <nav class="main-nav">
                     <a href="index.html" class="nav-link">Home</a>
-                    <a href="systems.html" class="nav-link">The Systems</a>
-                    <a href="disorders.html" class="nav-link">The Disorders</a>
-                    <a href="solutions.html" class="nav-link">The Interventions</a>
-                    <a href="about.html" class="nav-link">About & Sources</a>
+                    <a href="systems" class="nav-link">The Systems</a>
+                    <a href="disorders" class="nav-link" aria-current="page">The Disorders</a>
+                    <a href="solutions" class="nav-link">The Interventions</a>
+                    <a href="about" class="nav-link">About & Sources</a>
                 </nav>
+                <div class="mobile-only">
+                    <button class="theme-toggle-btn" aria-label="Toggle light/dark theme">
+                        <svg class="theme-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.106a.75.75 0 010 1.06l-1.591 1.59a.75.75 0 11-1.06-1.06l1.591-1.59a.75.75 0 011.06 0zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5h2.25a.75.75 0 01.75.75zM17.83 17.83a.75.75 0 01-1.06 0l-1.59-1.591a.75.75 0 111.06-1.06l1.59 1.591a.75.75 0 010 1.06zM12 21.75a.75.75 0 01-.75-.75v-2.25a.75.75 0 011.5 0v2.25a.75.75 0 01-.75-.75zM5.106 18.894a.75.75 0 010-1.06l1.591-1.59a.75.75 0 111.06 1.06l-1.591 1.59a.75.75 0 01-1.06 0zM2.25 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H3a.75.75 0 01-.75-.75zM6.106 5.106a.75.75 0 011.06 0l1.59 1.591a.75.75 0 11-1.06 1.06L6.106 6.166a.75.75 0 010-1.06z"></path></svg>
+                        <span>Switch Theme</span>
+                    </button>
+                </div>
             </div>
 
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
+            <button class="theme-toggle-btn desktop-only" aria-label="Toggle light/dark theme">
                 <svg class="theme-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.106a.75.75 0 010 1.06l-1.591 1.59a.75.75 0 11-1.06-1.06l1.591-1.59a.75.75 0 011.06 0zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5h2.25a.75.75 0 01.75.75zM17.83 17.83a.75.75 0 01-1.06 0l-1.59-1.591a.75.75 0 111.06-1.06l1.59 1.591a.75.75 0 010 1.06zM12 21.75a.75.75 0 01-.75-.75v-2.25a.75.75 0 011.5 0v2.25a.75.75 0 01-.75-.75zM5.106 18.894a.75.75 0 010-1.06l1.591-1.59a.75.75 0 111.06 1.06l-1.591 1.59a.75.75 0 01-1.06 0zM2.25 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H3a.75.75 0 01-.75-.75zM6.106 5.106a.75.75 0 011.06 0l1.59 1.591a.75.75 0 11-1.06 1.06L6.106 6.166a.75.75 0 010-1.06z"></path></svg>
             </button>
         </div>
@@ -57,27 +63,27 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">Rumination</th>
-                                    <td data-label="Glutamate & GABA"><strong>Low GABA</strong> disinhibits negative thought loops. <strong>Ketamine (glutamate)</strong> can rapidly "reset" these networks.<sup><a href="about.html#ref-4" class="citation-link">[4]</a></sup></td>
-                                    <td data-label="Serotonin"><strong>Low 5-HT</strong> predisposes to rumination. SSRIs reduce this by "dampening" the self-referential Default Mode Network (DMN).<sup><a href="about.html#ref-2" class="citation-link">[2]</a></sup></td>
+                                    <td data-label="Glutamate & GABA"><strong>Low GABA</strong> disinhibits negative thought loops. <strong>Ketamine (glutamate)</strong> can rapidly "reset" these networks.<sup><a href="about#ref-4" class="citation-link">[4]</a></sup></td>
+                                    <td data-label="Serotonin"><strong>Low 5-HT</strong> predisposes to rumination. SSRIs reduce this by "dampening" the self-referential Default Mode Network (DMN).<sup><a href="about#ref-2" class="citation-link">[2]</a></sup></td>
                                     <td data-label="Dopamine"><strong>Reduced DA</strong> in reward circuits can worsen anhedonia, leaving a void filled by negative thoughts.</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Catastrophizing</th>
-                                    <td data-label="Glutamate & GABA"><strong>Low GABA</strong> tone means the brain can’t turn off "what if?" scenarios. Benzodiazepines (GABA) acutely reduce this.<sup><a href="about.html#ref-2" class="citation-link">[2]</a></sup></td>
+                                    <td data-label="Glutamate & GABA"><strong>Low GABA</strong> tone means the brain can’t turn off "what if?" scenarios. Benzodiazepines (GABA) acutely reduce this.<sup><a href="about#ref-2" class="citation-link">[2]</a></sup></td>
                                     <td data-label="Serotonin">Helps regulate emotional response to uncertainty. SSRIs can reduce chronic worry.</td>
                                     <td data-label="Dopamine">Minor role. However, excessive DA in associative regions could impair risk judgment.</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Obsessive Loops (OCD)</th>
-                                    <td data-label="Glutamate & GABA"><strong>High Glutamate</strong> and <strong>Low GABA</strong> in the frontal cortex create an "accelerator-on, brake-off" state, driving intrusive loops.<sup><a href="about.html#ref-5" class="citation-link">[5]</a></sup><sup><a href="about.html#ref-6" class="citation-link">[6]</a></sup></td>
+                                    <td data-label="Glutamate & GABA"><strong>High Glutamate</strong> and <strong>Low GABA</strong> in the frontal cortex create an "accelerator-on, brake-off" state, driving intrusive loops.<sup><a href="about#ref-5" class="citation-link">[5]</a></sup><sup><a href="about#ref-6" class="citation-link">[6]</a></sup></td>
                                     <td data-label="Serotonin"><strong>5-HT deficiency</strong> is implicated. SSRIs are first-line treatment and help enhance top-down control over intrusive impulses.</td>
                                     <td data-label="Dopamine"><strong>Excess DA</strong> in the basal ganglia drives compulsive loops. DA blockers are sometimes used to reduce severe OCD symptoms.</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Suicidal Ideation</th>
-                                    <td data-label="Glutamate & GABA"><strong>Glutamate (NMDA) modulation</strong> is a breakthrough. Ketamine rapidly reduces suicidal thoughts by triggering synaptic resetting.<sup><a href="about.html#ref-4" class="citation-link">[4]</a></sup></td>
+                                    <td data-label="Glutamate & GABA"><strong>Glutamate (NMDA) modulation</strong> is a breakthrough. Ketamine rapidly reduces suicidal thoughts by triggering synaptic resetting.<sup><a href="about#ref-4" class="citation-link">[4]</a></sup></td>
                                     <td data-label="Serotonin"><strong>Low 5-HT</strong> is a known risk factor, correlating with impulsivity. SSRIs can reduce ideation long-term.</td>
-                                    <td data-label="Dopamine"><strong>Dopamine dysregulation</strong> affects the motivation to live. Reduced DA can intensify hopelessness.<sup><a href="about.html#ref-1" class="citation-link">[1]</a></sup></td>
+                                    <td data-label="Dopamine"><strong>Dopamine dysregulation</strong> affects the motivation to live. Reduced DA can intensify hopelessness.<sup><a href="about#ref-1" class="citation-link">[1]</a></sup></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -89,7 +95,7 @@
                     <p>Obsessive-Compulsive Disorder (OCD) clearly shows a "stuck loop." The brain's accelerator (glutamate) and brake (GABA) become imbalanced in key areas.</p>
                     <blockquote class="highlight-quote">
                         <p>In a 2023 study, researchers... found a key chemical imbalance in the frontal regions of the brain in people with OCD. They found higher levels of <strong>glutamate</strong> (the "accelerator") and lower levels of <strong>GABA</strong> (the "brake")... This state of over-activity helps explain why people with OCD get intrusive thoughts and feel "stuck" in compulsive behavioral loops.</p>
-                        <cite>- Summary of Robbins et al. (2023). <a href="about.html#ref-5" class="citation-link">[See full citation]</a></cite>
+                        <cite>- Summary of Robbins et al. (2023). <a href="about#ref-5" class="citation-link">[See full citation]</a></cite>
                     </blockquote>
                 </section>
 
@@ -108,10 +114,10 @@
                 <h3 class="footer-heading">Navigate</h3>
                 <nav class="footer-nav">
                     <a href="index.html" class="footer-link">Home</a>
-                    <a href="systems.html" class="footer-link">The Systems</a>
-                    <a href="disorders.html" class="footer-link">The Disorders</a>
-                    <a href="solutions.html" class="footer-link">The Interventions</a>
-                    <a href="about.html" class="footer-link">About & Sources</a>
+                    <a href="systems" class="footer-link">The Systems</a>
+                    <a href="disorders" class="footer-link">The Disorders</a>
+                    <a href="solutions" class="footer-link">The Interventions</a>
+                    <a href="about" class="footer-link">About & Sources</a>
                 </nav>
             </div>
             <div class="footer-col">
