@@ -2,11 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const body = document.body;
     const navToggle = document.getElementById('nav-toggle');
     const navContainer = document.getElementById('nav-container');
-    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggles = document.querySelectorAll('.theme-toggle-btn');
     const htmlElement = document.documentElement;
     const scrollTopBtn = document.getElementById('scroll-to-top');
 
-    // --- CITATION DATA ---
     const citationData = {
         "ref-1": `<strong>Dysregulation of dopamine receptors linked to suicide, study finds</strong><br>Dolan, E. W. (2024, May 22). <i>PsyPost</i>.`,
         "ref-2": `<strong>SSRIs and Benzodiazepines for General Anxiety Disorders (GAD)</strong><br>Gomez, A. F., & Hofmann, S. G. (n.d.). Anxiety and Depression Association of America.`,
@@ -16,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "ref-6": `<strong>Research: People with obsessive-compulsive disorder have an imbalance of brain chemicals</strong><br>University College London. (2023, June 28). <i>UCL News</i>.`
     };
 
-    // --- POPUP LOGIC ---
     let popupTimeout;
     const popup = document.createElement('div');
     popup.className = 'citation-popup';
@@ -25,38 +23,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const showPopup = (link) => {
         clearTimeout(popupTimeout);
         
-        // 1. ID from href (e.g., "about.html#ref-1" -> "ref-1")
-        const refId = link.getAttribute('href').split('#')[1];
-        if (!citationData[refId]) return;
+        const href = link.getAttribute('href');
+        const refId = href.includes('#') ? href.split('#')[1] : null;
+        
+        if (!refId || !citationData[refId]) return;
 
-        // 2. Set content
         popup.innerHTML = citationData[refId];
         popup.style.display = 'block';
         popup.style.opacity = '1';
 
-        // 3. Positioning logic
         const linkRect = link.getBoundingClientRect();
         const popupRect = popup.getBoundingClientRect();
         const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
 
-        // Default: center above the link
         let top = linkRect.top - popupRect.height - 10; 
         let left = linkRect.left + (linkRect.width / 2) - (popupRect.width / 2);
 
-        // Check top edge (Flip to bottom if cut off)
         if (top < 10) { 
-            // 10px buffer from top
             top = linkRect.bottom + 10; 
         }
 
-        // Check horizontal edges (clamp)
         if (left < 10) left = 10;
         if (left + popupRect.width > viewportWidth - 10) {
             left = viewportWidth - popupRect.width - 10;
         }
 
-        // Apply absolute positions (adjusted for scroll)
         popup.style.top = `${top + window.scrollY}px`;
         popup.style.left = `${left + window.scrollX}px`;
     };
@@ -65,38 +57,34 @@ document.addEventListener("DOMContentLoaded", () => {
         popupTimeout = setTimeout(() => {
             popup.style.opacity = '0';
             setTimeout(() => {
-                // Only hide display after fade out if opacity is still 0
                 if (popup.style.opacity === '0') {
                     popup.style.display = 'none';
                 }
             }, 200);
-        }, 300); // 300ms grace period to move mouse to popup
+        }, 300);
     };
 
-    // Attach events to all citation links
     document.querySelectorAll('.citation-link').forEach(link => {
         link.addEventListener('mouseenter', () => showPopup(link));
         link.addEventListener('mouseleave', hidePopup);
-        // Accessibility: Show on focus
         link.addEventListener('focus', () => showPopup(link));
         link.addEventListener('blur', hidePopup);
     });
 
-    // Keep popup open when hovering over the popup itself
     popup.addEventListener('mouseenter', () => clearTimeout(popupTimeout));
     popup.addEventListener('mouseleave', hidePopup);
 
-
-    // --- STANDARD SITE LOGIC (Navigation, Theme, etc.) ---
-
-    // 1. active page link highlighter
     const setActiveNavLink = () => {
-        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        // remove .html if present
+        const currentPath = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
         const navLinks = document.querySelectorAll('.main-nav .nav-link');
 
         navLinks.forEach(link => {
-            const linkPath = link.href.split('/').pop();
-            if (linkPath === currentPath) {
+            // Clean link: remove .html if present
+            const linkPath = link.href.split('/').pop().replace('.html', '') || 'index';
+            
+            // Match 'index' to '' or 'index'
+            if (linkPath === currentPath || (currentPath === '' && linkPath === 'index')) {
                 link.setAttribute('aria-current', 'page');
             } else {
                 link.removeAttribute('aria-current');
@@ -104,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // 2. mobile navigation
     const handleNavToggle = () => {
         const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
         navToggle.setAttribute('aria-expanded', !isExpanded);
@@ -123,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 3. theme toggler
     const applyTheme = (theme) => {
         htmlElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
@@ -148,11 +134,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
+    themeToggles.forEach(btn => {
+        btn.addEventListener('click', toggleTheme);
+    });
 
-    // 4. scroll-to-top button
     const checkScroll = () => {
         if (!scrollTopBtn) return;
         if (window.scrollY > 300) {
@@ -171,7 +156,6 @@ document.addEventListener("DOMContentLoaded", () => {
         scrollTopBtn.addEventListener('click', scrollToTop);
     }
 
-    // 5. fade-in sections
     const fadeInSections = () => {
         const sections = document.querySelectorAll('.content-section');
         const options = { root: null, rootMargin: '0px', threshold: 0.1 };
@@ -188,7 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
         sections.forEach(section => observer.observe(section));
     };
 
-    // 6. sticky nav active section highlighter
     const initPageNavObserver = () => {
         const pageNav = document.getElementById('page-nav');
         if (!pageNav) return;
@@ -227,7 +210,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Run initializers
     setActiveNavLink();
     initializeTheme();
     fadeInSections();
