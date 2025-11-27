@@ -170,10 +170,10 @@ input:focus-visible {
     color: var(--color-text-muted);
     text-decoration: none;
     font-weight: 500;
+    border-bottom: none;
 }
 .footer-link:hover {
     color: var(--color-primary);
-    border-bottom: none;
 }
 
 .content-layout {
