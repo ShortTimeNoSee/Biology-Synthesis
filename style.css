@@ -1042,6 +1042,10 @@ html[data-theme="light"] .scroll-to-top:hover {
     color: var(--color-heading);
 }
 
+html[data-theme="light"] .citation-popup {
+    background-color: #fff;
+}
+
 .citation-list li {
     transition: background-color 0.5s ease;
     border-radius: var(--border-radius);
